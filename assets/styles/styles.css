@@ -1,0 +1,233 @@
+@keyframes bgBreathe {
+  0%,
+  100% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 105%;
+  }
+}
+body {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: "Cascadia Code", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #02031a;
+  overflow-y: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-image: URL("../images/futuristic-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: bgBreathe 8s ease-in-out infinite;
+}
+.card {
+  width: 70%;
+  height: 60%;
+  border-left: 4px solid #1b75bb;
+  border-right: 4px solid #1b75bb;
+  background-color: rgba(229, 64, 229, 0.153);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 50px;
+  /* border-radius: 25px; */
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.card-top-right-border {
+  position: absolute;
+  top: -28px;
+  right: -4px;
+  width: 50%;
+  height: 25px;
+  background-color: rgba(229, 64, 229, 0.153);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 4px solid #1b75bb;
+  border-left: 4px solid #1b75bb;
+  border-right: 4px solid #1b75bb;
+}
+.card-top-left-border {
+  position: absolute;
+  border-top: 4px solid #1b75bb;
+  width: 50%;
+  left: -4px;
+  top: -3px;
+}
+.card-bottom-left-border {
+  position: absolute;
+  bottom: -28.5px;
+  left: -4px;
+  width: 50%;
+  height: 25px;
+  background-color: rgba(229, 64, 229, 0.153);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 4px solid #1b75bb;
+  border-left: 4px solid #1b75bb;
+  border-right: 4px solid #1b75bb;
+}
+.card-bottom-right-border {
+  position: absolute;
+  border-bottom: 4px solid #1b75bb;
+  width: 50%;
+  right: -4px;
+  bottom: -4px;
+}
+.card h2 {
+  line-height: 10px;
+}
+.card p {
+  font-weight: 300;
+}
+.w-demi {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skill {
+  font-size: 12px;
+  background-color: #1b75bb;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.3s ease, transform 0.3s ease;
+}
+.skill:hover {
+  background-color: #a83185;
+  scale: 1.2;
+}
+.skills-section {
+  margin-top: 35px;
+}
+.skills-section .skills-title {
+  font-weight: 500 !important;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+.idea {
+  margin-top: 25px;
+}
+.profile-image {
+  width: 60%;
+  border-radius: 30px;
+  transition: 1s ease, transform 1s ease;
+  cursor: pointer;
+}
+.profile-image:hover {
+  scale: 1.2;
+}
+.image-section {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+.text-center {
+  text-align: center;
+}
+.name {
+  line-height: 15px;
+}
+.show-mobile {
+  display: none;
+}
+.hide-mobile {
+  display: inherit;
+}
+
+/* Fade in */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  body {
+    height: auto;
+    overflow-y: scroll;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  body::before {
+   animation: none;
+  }
+  .w-demi {
+    width: 100%;
+  }
+  .card {
+    flex-direction: column;
+    padding: 25px;
+  }
+  .show-mobile {
+    display: block;
+  }
+  .hide-mobile {
+    display: none;
+  }
+  .name {
+    line-height: normal;
+    margin: 0;
+  }
+  .card p {
+    margin: 0;
+  }
+  .idea {
+    margin-top: 15px;
+  }
+  .skills-title {
+    margin-bottom: 5px !important;
+  }
+  .skills-list {
+    gap: 5px;
+  }
+}
